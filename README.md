@@ -1,4 +1,4 @@
-# 4. Desarrollo backend con node.js
+# 8. Desarrollo backend avanzado con node.js
 
 Repositorio de la práctica del módulo de **desarrollo backend avanzado con node.js** que consiste en una ampliación del la práctica anterior del API de **_Nodepop_**
 
