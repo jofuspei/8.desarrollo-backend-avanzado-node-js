@@ -1,0 +1,49 @@
+{
+  "productos": [
+    {
+      "name": "Mini Cooper Diesel",
+      "selling": true,
+      "price": 8650,
+      "image": "mini_cooper.jpeg",
+      "tags": ["motor"]
+    },
+    { 
+      "name": "Macbook Pro 15",
+      "selling": false,
+      "price": 1200,
+      "image": "macbook_pro_15.jpeg",
+      "tags": [
+        "work",
+        "lifestyle"
+      ]
+    },
+    { 
+      "name": "Bicicleta Time RXRS Ultime",
+      "selling": true,
+      "price": 3800,
+      "image": "bici_time_rxr.jpeg",
+      "tags": [
+        "lifestyle"
+      ]
+    },
+    {
+      "name": "Samsung Galaxy S20 128GB",
+      "selling": true,
+      "price": 750,
+      "image": "samsung_s20.jpeg",
+      "tags": [
+        "mobile"
+      ]
+    },
+    {
+      "name": "Vespa 125 roja",
+      "selling": true,
+      "price": 1850,
+      "image": "vespa_125.jpeg",
+      "tags": [
+        "motor",
+        "lifestyle"
+      ]
+    }
+  ]
+}
