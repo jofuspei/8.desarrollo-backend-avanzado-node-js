@@ -62,13 +62,13 @@ Párametros:
   - email
   - password
 
+  POST /api/authenticate
+
 ```json
   {
     "tokenJWT": "xxx.yyy.zzz"
   }
 ```
-
-POST /api/authenticate
 
 ### Creación de producto generando imagen y su correspondiente thumbnail
 
