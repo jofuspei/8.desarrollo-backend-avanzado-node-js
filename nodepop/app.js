@@ -9,7 +9,10 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
+var authenticateRouter = require('./routes/api/authenticate');
 var productosRouter = require('./routes/api/productos');
+
+const jwtAuth = require('./lib/jwtAuth');
 
 var app = express();
 
@@ -31,7 +34,8 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 // RUTAS DEL API
-app.use('/api/productos', productosRouter);
+app.use('/api/authenticate', authenticateRouter);
+app.use('/api/productos', jwtAuth(), productosRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
