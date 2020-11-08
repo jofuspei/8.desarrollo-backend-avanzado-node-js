@@ -43,90 +43,57 @@ Los datos de los productos se encuentran en el archivo _productos.json_
 
 ### Producción
 ```sh
-  npm start
+  npm run pm2
 ```
 
 ### Desarrollo
 
 ```sh
-  npm run dev
+  npm run pm2-dev
 ```
 
 <br />
 
 ## Métodos del API
 
-### Listado de productos
+### Obtención del token JWT al autenticarse con un usuario correcto
 
-GET /api/productos?**name**=Min&**selling**=true&**price**=1000-&**tag**=motor&**skip**=1&**limit**=3
-
-```json
-  {
-    "products": [
-    {
-      "tags": [
-        "motor"
-      ],
-      "_id": "5f5bcea9b91aae155bceb619",
-      "name": "Mini Cooper Diesel",
-      "selling": true,
-      "price": 8650,
-      "image": "mini_cooper.jpeg",
-      "__v": 0
-      }
-    ]
-  }
-```
-
-### Listado de tags
-
-GET /api/productos/tags
+Párametros:
+  - email
+  - password
 
 ```json
   {
-    "tags": [
-      "lifestyle",
-      "mobile",
-      "motor",
-      "work"  
-    ]
+    "tokenJWT": "xxx.yyy.zzz"
   }
 ```
 
-### Creación de producto
+POST /api/authenticate
+
+### Creación de producto generando imagen y su correspondiente thumbnail
+
+_**Nota:** Se ha protegido el api de productos con JWT. Para acceder a el es necesario autenticarse y obtener un token_
 
 Párametros:
   - tags
   - name
   - selling
   - price
-  - image
+  - image (archivo)
 
-POST /api/productos/add
+POST /api/productos
 
 ```json
   {
     "added": {
         "tags": [
-            "mobile"
+            "lifestyle"
         ],
-        "_id": "5f5e20b7aae71a380fb58f5d",
-        "name": "iPhone SE negro",
-        "selling": true,
-        "price": 235,
-        "image": "iphone_se.jpeg",
+        "_id": "5fa83215dbda617055373860",
+        "name": "Monitor Dell U2521",
+        "selling": false,
+        "price": 325,
         "__v": 0
     }
-  }
-```
-
-### Carga de imágenes
-
-POST /api/productos/upload
-
-Párametros:
-  - image
-
-```
-  Upload completed successfully
+}
 ```

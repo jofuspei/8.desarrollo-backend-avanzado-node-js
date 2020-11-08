@@ -86,4 +86,20 @@ router.post('/upload', upload.single('image'), (req, res, next) => {
   res.send('Upload completed successfully');
 })
 
+// Creación de anuncio (con image thumbnail)
+router.post('/', upload.single('image'), async (req, res, next) => {
+  try {
+    const producto = new Producto(req.body);
+
+    const thumbnail = await producto.getThumbnail(req.file);
+
+    const productoInsertado = await producto.save();
+
+    res.json({ "added": productoInsertado, "thumbnail": thumbnail });
+  } catch (error) {
+    next(error);
+  }
+});
+
+
 module.exports = router;
