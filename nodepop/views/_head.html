@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <header>
+      <div class="language">
+        <% getLocales().forEach( locale => { %>
+          <a href="/switch-language/<%= locale %>"><%= locale %></a>
+        <% }) %>
+      </div>
+
+      <h1><%= title %></h1>
+      <p><%= __('Welcome to') %> <%= title %>!</p>
+      <p><%= __('A place where you can buy what you want and sell what you don\'t need anymore') %></p>
+    </header>

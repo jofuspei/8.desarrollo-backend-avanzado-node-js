@@ -1,42 +1,40 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <header>
-      <h1><%= title %></h1>
-      <p>Welcome to <%= title %>!</p>
-      <p>A place where you can buy what you want and sell what you don't need anymore</p>
-    </header>
+<% include _head.html %>
 
     <div class="container">
       <table id="products">
-        <% productos.forEach( p => { %>
+        <thead>
           <tr>
-            <td class="image">
-              <img src="/images/<%= p.image %>" alt="<% p.image %>">
-            </td>
-            <td class="name">
-              <p><%= p.name %></p>
-            </td>
-            <td class="selling">
-              <p><%= p.selling ? 'Venta' : 'Compra' %></p>
-            </td>
-            <td class="tags">
-              <% p.tags.forEach( tag => { %>
-                <span><%= tag %></span>
-              <% }); %>
-            </td>
-            <td class="price">
-              <p><%= new Intl.NumberFormat("es-ES", {style: "currency", currency: "EUR"}).format(p.price) %></p>
-            </td>
+            <th><%= __('Picture') %></th>
+            <th><%= __('Product name') %></th>
+            <th><%= __('Type') %></th>
+            <th><%= __('Tags') %></th>
+            <th><%= __('Price') %></th>
           </tr>
-        <% }); %>
+        </thead>
+        <tbody>
+          <% productos.forEach( p => { %>
+            <tr>
+              <td class="image">
+                <img src="/images/<%= p.image %>" alt="<% p.image %>">
+              </td>
+              <td class="name">
+                <p><%= p.name %></p>
+              </td>
+              <td class="selling">
+                <p><%= p.selling ? __('Venta') : __('Compra') %></p>
+              </td>
+              <td class="tags">
+                <% p.tags.forEach( tag => { %>
+                  <span><%= tag %></span>
+                <% }); %>
+              </td>
+              <td class="price">
+                <p><%= new Intl.NumberFormat("en-EN", {style: "currency", currency: "EUR"}).format(p.price) %></p>
+              </td>
+            </tr>
+          <% }); %>
+        </tbody>
       </table>
-
     </div>
-  </body>
-</html>
+
+<% include _foot.html %>

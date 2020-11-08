@@ -6,19 +6,43 @@ html {
 }
 
 body {
-  padding: 50px;
   font: 14px "Varela Round", Ubuntu, "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0;
+  min-height: 100vh;
 }
 
 header {
   margin-bottom: 48px;
+  padding: 24px 0;
+  background-color: #0A5EBE;
+  color: white;
+}
+
+header .language {
+  display: flex;
+  justify-content: flex-end;
+  position: absolute;
+  right: 16px;
+}
+
+header .language a {
+  padding: 4px 16px;
+  margin: 0 8px;
+  background-color: rgba(255,255,255,0.8);
+  border-radius: 16px;
+  text-decoration: none;
+  color: #0A5EBE;
+}
+
+header .language a:hover {
+  background-color: lightgreen;
 }
 
 header h1 {
+  color: lightgreen;
   font-weight: bolder;
   text-align: center;
   text-transform: uppercase;
-  color: #0A5EBE;
 }
 
 header p {
@@ -31,39 +55,45 @@ header p {
   margin: 0 auto;
 }
 
-#products td {
+#products tbody td,
+#products thead th {
   border: 1px solid #DDDDDD;
   padding: 12px;
 }
 
-#products tr:nth-child(odd){
+#products thead th {
+  font-size: 24px;
+  text-transform: uppercase;
+}
+
+#products tbody tr:nth-child(odd){
   background-color: #EAEAFF;
 }
 
-#products tr:hover{
+#products tbody tr:hover{
   background-color: #D9D5F8;
 }
 
-#products .image {
+#products tbody .image {
   text-align: center;
 }
 
-#products .image img {
+#products tbody .image img {
   max-height: 100px;
   border-radius: 8px;
 }
 
-#products .name p {
+#products tbody .name p {
   font-weight: bold;
 }
 
-#products .selling p {
+#products tbody .selling p {
   font-size: 20px;
   font-weight: bolder;
   text-transform: uppercase;
 }
 
-#products .tags span {
+#products tbody .tags span {
   padding: 8px 16px;
   border-radius: 4px;
   background-color: #BDBDED;
@@ -71,8 +101,19 @@ header p {
   margin: 0 12px;
 }
 
-#products .price p {
+#products tbody .price p {
   font-weight: bold;
   font-size: 20px;
   color: #0A5EBE
+}
+
+footer {
+  margin-top: 48px;
+  padding: 24px 0;
+  background-color: #0A5EBE;
+  color: white;
+}
+
+footer p {
+  text-align: center;
 }

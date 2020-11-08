@@ -19,6 +19,12 @@ var app = express();
 // Conexión a la BBDD
 require('./lib/connectMongoose');
 
+
+app.use(cookieParser());
+// i18n setup
+const i18n = require('./lib/i18nSetup');
+app.use(i18n.init);
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'html');
@@ -31,6 +37,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+app.use('/switch-language', require('./routes/switch-language'));
 app.use('/users', usersRouter);
 
 // RUTAS DEL API
